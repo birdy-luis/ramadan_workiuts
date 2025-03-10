@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Workout Guide for Ramadan</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+    a {
+      color: #1e90ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header, footer {
+      background: #1e1e1e;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    /* Section Headings */
+    h2 {
+      border-bottom: 2px solid #1e90ff;
+      padding-bottom: 10px;
+      margin-top: 40px;
+    }
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #333;
+      text-align: center;
+    }
+    /* Video Placeholder Container */
+    .video-placeholder {
+      position: relative;
+      cursor: pointer;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
+    }
+    .video-placeholder:hover {
+      transform: scale(1.02);
+    }
+    .video-placeholder img {
+      width: 100%;
+      display: block;
+    }
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 68px;
+      height: 48px;
+      background: url('https://s.ytimg.com/yts/imgbin/player-common-vflV6aKhQ.png') no-repeat;
+      background-position: -68px -68px;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    /* Collapsible Sections */
+    .collapsible {
+      background-color: #1e90ff;
+      color: #fff;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1em;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .active, .collapsible:hover {
+      background-color: #1c86ee;
+    }
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #2c2c2c;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    /* Section Box */
+    .section-box {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Responsive Layout */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Interactive Workout Guide for Ramadan</h1>
+  </header>
+
+  <div class="container">
+    <!-- Weekly Routine -->
+    <section id="weekly-routine" class="section-box">
+      <h2>Weekly Routine</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Workout Focus</th>
+            <th>Timing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>Full-Body Strength + Core</td>
+            <td>Night (Post-Taraweeh)</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>Cardio (Low-Impact) + Stretching</td>
+            <td>Pre-Iftar</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>Upper Body (Push-Ups, Shoulders) + Core</td>
+            <td>Night (Post-Taraweeh)</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>Lower Body (Legs, Glutes)</td>
+            <td>Night (Post-Taraweeh)</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>Rest or Light Walking</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>Full-Body Strength + Core</td>
+            <td>Night (Post-Taraweeh)</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>Cardio (Jump Rope, Walking) + Core</td>
+            <td>Pre-Iftar</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Full-Body Strength Section -->
+    <section id="fullbody" class="section-box">
+      <h2>Full-Body Strength (Monday &amp; Saturday)</h2>
+      <h3>Warm-Up (5 minutes)</h3>
+      <button class="collapsible">Show/Hide Warm-Up Exercises</button>
+      <div class="content">
+        <p><strong>Arm Circles – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="140RTNMciH8">
+          <img src="https://img.youtube.com/vi/140RTNMciH8/hqdefault.jpg" alt="Arm Circles">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>High Knee March – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="OAJ_J3EZkdY">
+          <img src="https://img.youtube.com/vi/OAJ_J3EZkdY/hqdefault.jpg" alt="High Knee March">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Shoulder Rolls – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="3luPsAtMqfQ">
+          <img src="https://img.youtube.com/vi/3luPsAtMqfQ/hqdefault.jpg" alt="Shoulder Rolls">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Bodyweight Squats – 10 reps</strong></p>
+        <div class="video-placeholder" data-video-id="aclHkVaku9U">
+          <img src="https://img.youtube.com/vi/aclHkVaku9U/hqdefault.jpg" alt="Bodyweight Squats">
+          <div class="play-button"></div>
+        </div>
+      </div>
+
+      <h3>Main Workout (3 Rounds)</h3>
+      <button class="collapsible">Show/Hide Main Workout</button>
+      <div class="content">
+        <p><strong>Bodyweight Squats – 15 reps</strong></p>
+        <div class="video-placeholder" data-video-id="aclHkVaku9U">
+          <img src="https://img.youtube.com/vi/aclHkVaku9U/hqdefault.jpg" alt="Bodyweight Squats">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Push-Ups (Knee or Regular) – 10 reps</strong></p>
+        <div class="video-placeholder" data-video-id="IODxDxX7oi4">
+          <img src="https://img.youtube.com/vi/IODxDxX7oi4/hqdefault.jpg" alt="Push-Ups">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Glute Bridges – 15 reps</strong></p>
+        <div class="video-placeholder" data-video-id="tqp5XQPpTxY">
+          <img src="https://img.youtube.com/vi/tqp5XQPpTxY/hqdefault.jpg" alt="Glute Bridges">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Plank – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="pSHjTRCQxIw">
+          <img src="https://img.youtube.com/vi/pSHjTRCQxIw/hqdefault.jpg" alt="Plank">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Superman Hold – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="cc6UVRS7PW4">
+          <img src="https://img.youtube.com/vi/cc6UVRS7PW4/hqdefault.jpg" alt="Superman Hold">
+          <div class="play-button"></div>
+        </div>
+      </div>
+
+      <h3>Cool-Down (5 minutes)</h3>
+      <button class="collapsible">Show/Hide Cool-Down</button>
+      <div class="content">
+        <p><strong>Cat-Cow Stretch</strong></p>
+        <div class="video-placeholder" data-video-id="y39PrKY_4JM">
+          <img src="https://img.youtube.com/vi/y39PrKY_4JM/hqdefault.jpg" alt="Cat-Cow Stretch">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Child’s Pose</strong></p>
+        <div class="video-placeholder" data-video-id="eqVMAPM00DM">
+          <img src="https://img.youtube.com/vi/eqVMAPM00DM/hqdefault.jpg" alt="Child’s Pose">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Hamstring Stretch</strong></p>
+        <div class="video-placeholder" data-video-id="iN3sHkni1gI">
+          <img src="https://img.youtube.com/vi/iN3sHkni1gI/hqdefault.jpg" alt="Hamstring Stretch">
+          <div class="play-button"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cardio & Core Section -->
+    <section id="cardio" class="section-box">
+      <h2>Cardio &amp; Core (Tuesday &amp; Sunday)</h2>
+      <h3>Warm-Up (5 minutes)</h3>
+      <button class="collapsible">Show/Hide Warm-Up Exercises</button>
+      <div class="content">
+        <p><strong>Arm Swings – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="ncPSh7MBRUk">
+          <img src="https://img.youtube.com/vi/ncPSh7MBRUk/hqdefault.jpg" alt="Arm Swings">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Torso Twists – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="3cFz83-y30A">
+          <img src="https://img.youtube.com/vi/3cFz83-y30A/hqdefault.jpg" alt="Torso Twists">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Light Jogging in Place – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="3EfaY9x4su0">
+          <img src="https://img.youtube.com/vi/3EfaY9x4su0/hqdefault.jpg" alt="Jogging in Place">
+          <div class="play-button"></div>
+        </div>
+      </div>
+
+      <h3>Main Workout (3 Rounds)</h3>
+      <button class="collapsible">Show/Hide Main Workout</button>
+      <div class="content">
+        <p><strong>Jump Rope (or Jogging in Place) – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="R0mMyV5OtcM">
+          <img src="https://img.youtube.com/vi/R0mMyV5OtcM/hqdefault.jpg" alt="Jump Rope">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Mountain Climbers (Slow Pace) – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="nmwgirgXLYM">
+          <img src="https://img.youtube.com/vi/nmwgirgXLYM/hqdefault.jpg" alt="Mountain Climbers">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Leg Raises – 10 reps</strong></p>
+        <div class="video-placeholder" data-video-id="JB2oyawG9KI">
+          <img src="https://img.youtube.com/vi/JB2oyawG9KI/hqdefault.jpg" alt="Leg Raises">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Side Plank (Each Side) – 20 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="2FkhYongzts">
+          <img src="https://img.youtube.com/vi/2FkhYongzts/hqdefault.jpg" alt="Side Plank">
+          <div class="play-button"></div>
+        </div>
+      </div>
+
+      <h3>Cool-Down (5 minutes)</h3>
+      <button class="collapsible">Show/Hide Cool-Down</button>
+      <div class="content">
+        <p><strong>Hip Flexor Stretch</strong></p>
+        <div class="video-placeholder" data-video-id="7bRaX6M2nr8">
+          <img src="https://img.youtube.com/vi/7bRaX6M2nr8/hqdefault.jpg" alt="Hip Flexor Stretch">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Shoulder Stretch</strong></p>
+        <div class="video-placeholder" data-video-id="a9WC_eLmP30">
+          <img src="https://img.youtube.com/vi/a9WC_eLmP30/hqdefault.jpg" alt="Shoulder Stretch">
+          <div class="play-button"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upper Body Strength Section -->
+    <section id="upper" class="section-box">
+      <h2>Upper Body Strength (Wednesday)</h2>
+      <h3>Warm-Up (5 minutes)</h3>
+      <button class="collapsible">Show/Hide Warm-Up</button>
+      <div class="content">
+        <p><strong>Shoulder Circles – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="shcSlZEnNp0">
+          <img src="https://img.youtube.com/vi/shcSlZEnNp0/hqdefault.jpg" alt="Shoulder Circles">
+          <div class="play-button"></div>
+        </div>
+      </div>
+
+      <h3>Main Workout (3 Rounds)</h3>
+      <button class="collapsible">Show/Hide Main Workout</button>
+      <div class="content">
+        <p><strong>Incline Push-Ups (Hands on a Chair/Wall) – 12 reps</strong></p>
+        <div class="video-placeholder" data-video-id="IODxDxX7oi4">
+          <img src="https://img.youtube.com/vi/IODxDxX7oi4/hqdefault.jpg" alt="Incline Push-Ups">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Triceps Dips (On a Sturdy Chair) – 10 reps</strong></p>
+        <div class="video-placeholder" data-video-id="0326dy_-CzM">
+          <img src="https://img.youtube.com/vi/0326dy_-CzM/hqdefault.jpg" alt="Triceps Dips">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Pike Push-Ups (Shoulders Focused) – 10 reps</strong></p>
+        <div class="video-placeholder" data-video-id="XckEEwa1BPI">
+          <img src="https://img.youtube.com/vi/XckEEwa1BPI/hqdefault.jpg" alt="Pike Push-Ups">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Superman Hold (Back &amp; Core) – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="cc6UVRS7PW4">
+          <img src="https://img.youtube.com/vi/cc6UVRS7PW4/hqdefault.jpg" alt="Superman Hold">
+          <div class="play-button"></div>
+        </div>
+      </div>
+
+      <h3>Cool-Down (5 minutes)</h3>
+      <button class="collapsible">Show/Hide Cool-Down</button>
+      <div class="content">
+        <p><strong>Chest Stretch</strong></p>
+        <div class="video-placeholder" data-video-id="NePr1XKRTLU">
+          <img src="https://img.youtube.com/vi/NePr1XKRTLU/hqdefault.jpg" alt="Chest Stretch">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Triceps Stretch</strong></p>
+        <div class="video-placeholder" data-video-id="ohmRImmdo8I">
+          <img src="https://img.youtube.com/vi/ohmRImmdo8I/hqdefault.jpg" alt="Triceps Stretch">
+          <div class="play-button"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lower Body Strength Section -->
+    <section id="lower" class="section-box">
+      <h2>Lower Body Strength (Thursday)</h2>
+      <h3>Warm-Up (5 minutes)</h3>
+      <button class="collapsible">Show/Hide Warm-Up</button>
+      <div class="content">
+        <p><strong>Leg Swings – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="pNOs9cFdkGU">
+          <img src="https://img.youtube.com/vi/pNOs9cFdkGU/hqdefault.jpg" alt="Leg Swings">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Calf Raises – 15 reps</strong></p>
+        <div class="video-placeholder" data-video-id="YMmgqO8Jo-k">
+          <img src="https://img.youtube.com/vi/YMmgqO8Jo-k/hqdefault.jpg" alt="Calf Raises">
+          <div class="play-button"></div>
+        </div>
+      </div>
+
+      <h3>Main Workout (3 Rounds)</h3>
+      <button class="collapsible">Show/Hide Main Workout</button>
+      <div class="content">
+        <p><strong>Bodyweight Squats – 15 reps</strong></p>
+        <div class="video-placeholder" data-video-id="aclHkVaku9U">
+          <img src="https://img.youtube.com/vi/aclHkVaku9U/hqdefault.jpg" alt="Bodyweight Squats">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Lunges (Alternating) – 10 reps per leg</strong></p>
+        <div class="video-placeholder" data-video-id="QOVaHwm-Q6U">
+          <img src="https://img.youtube.com/vi/QOVaHwm-Q6U/hqdefault.jpg" alt="Lunges">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Glute Bridges – 15 reps</strong></p>
+        <div class="video-placeholder" data-video-id="tqp5XQPpTxY">
+          <img src="https://img.youtube.com/vi/tqp5XQPpTxY/hqdefault.jpg" alt="Glute Bridges">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Calf Raises – 15 reps</strong></p>
+        <div class="video-placeholder" data-video-id="YMmgqO8Jo-k">
+          <img src="https://img.youtube.com/vi/YMmgqO8Jo-k/hqdefault.jpg" alt="Calf Raises">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Wall Sit – 30 seconds</strong></p>
+        <div class="video-placeholder" data-video-id="-cdph8hv0O0">
+          <img src="https://img.youtube.com/vi/-cdph8hv0O0/hqdefault.jpg" alt="Wall Sit">
+          <div class="play-button"></div>
+        </div>
+      </div>
+
+      <h3>Cool-Down (5 minutes)</h3>
+      <button class="collapsible">Show/Hide Cool-Down</button>
+      <div class="content">
+        <p><strong>Hamstring Stretch</strong></p>
+        <div class="video-placeholder" data-video-id="iN3sHkni1gI">
+          <img src="https://img.youtube.com/vi/iN3sHkni1gI/hqdefault.jpg" alt="Hamstring Stretch">
+          <div class="play-button"></div>
+        </div>
+        <p><strong>Quad Stretch</strong></p>
+        <div class="video-placeholder" data-video-id="5ZpeAV3A_kA">
+          <img src="https://img.youtube.com/vi/5ZpeAV3A_kA/hqdefault.jpg" alt="Quad Stretch">
+          <div class="play-button"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rest or Light Walking Section -->
+    <section id="rest" class="section-box">
+      <h2>Rest or Light Walking (Friday)</h2>
+      <p>Take a 30-minute light walk or choose your favorite route. Use any of the cool-down stretches above as needed.</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Interactive Workout Guide. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Lazy load YouTube videos on click
+    document.querySelectorAll('.video-placeholder').forEach(function(placeholder) {
+      placeholder.addEventListener('click', function() {
+        var videoId = this.getAttribute('data-video-id');
+        var iframe = document.createElement('iframe');
+        iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1');
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        this.innerHTML = '';
+        this.appendChild(iframe);
+      });
+    });
+
+    // Collapsible sections
+    var coll = document.getElementsByClassName("collapsible");
+    for (var i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+      });
+    }
+  </script>
+</body>
+</html>
